@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Task Manager</h1>
+  <div class="tasks">
+    <ol>
+    <% @tasks.each do |task| %>
+        <li><input type="checkbox" <%= "checked" if task.completed %>> <%= link_to task.title, task_path(task) %><br>
+    <%= link_to "Delete task", task_path(task), method: "delete", data: {confirm: "Are you sure"} %></li>
+    <p></p>
+    <% end %>
+    </ol>
+    <br>
+    <%= link_to "Add new task", new_task_path(@task) %>
+  </div>
+</div>
